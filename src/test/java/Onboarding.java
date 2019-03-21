@@ -7,6 +7,7 @@ public class Onboarding {
     public void flowPortfolio() {
         buyPortfolio();
         suitability();
+        one_four_of_onboarding();
     }
 
     void buyPortfolio() {
@@ -14,6 +15,7 @@ public class Onboarding {
             driver.get("http://18.185.161.25/investment");
         }
         driver.findElement(By.xpath("//tr[1]//div[@class=\"buttons-container\"]//button")).click();
+////div[contains(text(),'You already have this product, you can invest more in the cockpit!')]
         wait(1000);
         if (!driver.getCurrentUrl().equals("http://18.185.161.25/client/onboardings")) {
             System.out.println("The onboardings page doesn't open after buying a portfolio, current URL" + driver.getCurrentUrl());
@@ -85,6 +87,18 @@ public class Onboarding {
 
 
         } else System.out.println("The Suitability page is not opened!");
+    }
+
+    void one_four_of_onboarding (){
+        wait(500);
+        if (driver.findElements(By.xpath("//h4[@class=\"page-header\"]")).size()!=0){
+            System.out.println("Are the Back and Skip buttons clickable? - "+driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[1]")).isEnabled()
+                    +" "+driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[2]")).isEnabled());
+            System.out.println("Are the Next button clickable? - "+driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[3]")).isEnabled());
+            driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[3]")).click(); // go to the 1st step of onboarding
+        }else System.out.println("Invalid onboarding page opens"+driver.getCurrentUrl());
+        wait(500);
+        driver.findElement(By.xpath("//h4[contains(text(),'Angaben zu Ihrer Person')]"));
     }
 
 
