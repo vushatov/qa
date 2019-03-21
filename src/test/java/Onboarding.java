@@ -14,7 +14,6 @@ public class Onboarding {
     {
         if (!driver.getCurrentUrl().equals("http://18.185.161.25/investment")){
             driver.get("http://18.185.161.25/investment");
-
         }
         driver.findElement(By.xpath("//tr[1]//div[@class=\"buttons-container\"]//button")).click();
         try {
@@ -43,16 +42,16 @@ public class Onboarding {
         {
             driver.findElement(By.xpath("//p[@class=\"max\"]")).click(); //1st q slider
             driver.findElement(By.xpath("//div[@class=\"question__steps-buttons\"]//button[2]")).click(); //next
-            driver.findElement(By.xpath("//div[@class=\"jss228\"]")).click(); //open dropdown list of 2nd q
+            driver.findElement(By.xpath("//div[@style=\"min-height: 0px; height: auto; transition-duration: 258ms;\"]/div/div/div/div")).click(); //open dropdown list of 2nd q
+            driver.findElement(By.xpath("//div[@role=\"document\"]//li[@data-value=\"Wealth preservation\"]")).click(); //select  item in the dropdown
             try {
-                Thread.sleep(10000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            driver.findElement(By.xpath("//div[@role=\"document\"]//li[@data-value=\"Wealth preservation\"]")).click(); //select 1st item in the dropdown
-            driver.findElement(By.xpath("//button[1][@type=\"button\" and @style=\"border-radius: 0px; box-shadow: none; font-family: Montserrat, sans-serif; font-size: 14px;\" ]")).click(); //press back
+            driver.findElement(By.xpath("//div[@icon=\"2\"]//button[1]")).click(); //press back
             driver.findElement(By.xpath("//div[@class=\"question__steps-buttons\"]//button[2]")).click(); //press next
-            driver.findElement(By.xpath("//button[2][@type=\"button\" and @style=\"border-radius: 0px; box-shadow: none; font-family: Montserrat, sans-serif; font-size: 14px;\" ]")).click(); //next to the 3rd q
+            driver.findElement(By.xpath("//div[@icon=\"2\"]//button[2]")).click(); //next to the 3rd q
 
         }else System.out.println("The Suitability page is not opened!");
     }
