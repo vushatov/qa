@@ -14,7 +14,7 @@ public class Onboarding {
     {
         if (!driver.getCurrentUrl().equals("http://18.185.161.25/investment")){
             driver.get("http://18.185.161.25/investment");
-            System.out.println();
+
         }
         driver.findElement(By.xpath("//tr[1]//div[@class=\"buttons-container\"]//button")).click();
         try {
