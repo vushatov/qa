@@ -5,7 +5,7 @@ public class Onboarding {
     static WebDriver driver = Driver.driver;
 
     public void flowPortfolio() {
-        //  buyPortfolio();
+        buyPortfolio();
         suitability();
     }
 
@@ -31,23 +31,17 @@ public class Onboarding {
         wait(500);
         if (driver.findElements(By.xpath("//p[1][@class=\"suitability-subtitle\"]")).size() != 0) {
 
-
             WebElement previousStep = driver.findElement(By.xpath("//div[@class=\"question__steps-buttons\"]/button[1]"));
-
             driver.findElement(By.xpath("//p[@class=\"max\"]")).click(); //1st q slider
             nextStep(); //next
             driver.findElement(By.xpath("//div[@style=\"min-height: 0px; height: auto; transition-duration: 258ms;\"]/div/div/div/div")).click(); //open dropdown list of 2nd q
             wait(500);
-
             driver.findElement(By.xpath("//div[@role=\"document\"]//li[@data-value=\"Wealth preservation\"]")).click(); //select  item in the dropdown
             wait(500);
-
             nextStep(); //next to the 3rd q
-
             wait(500);
             driver.findElement(By.xpath("//table[1]//tr[1]/td[1]//input[@type=\"checkbox\"]")).click(); // select checkbox in the table
             wait(500);
-
             nextStep(); //go to the 4th step
             wait(500);
             driver.findElement(By.xpath("//table[1]//tr[9]//td[1]/div")).click(); //open the last dropdown list in the table
@@ -61,6 +55,7 @@ public class Onboarding {
             nextStep(); //go to the 6th step
             wait(500);
             driver.findElement(By.xpath("//input[@type=\"number\"]")).clear();
+            wait(500);
             driver.findElement(By.xpath("//input[@type=\"number\"]")).sendKeys("12"); // enter months number
             wait(500);
             nextStep();//go to the 7th step
