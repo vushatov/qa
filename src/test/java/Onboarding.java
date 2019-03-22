@@ -127,6 +127,7 @@ public class Onboarding {
 
     public boolean previousStep() {
         boolean result = false;
+        boolean result2 = false;
         int attempts = 0;
         while (attempts < 2) {
             try {
