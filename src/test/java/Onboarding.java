@@ -99,7 +99,20 @@ public class Onboarding {
         }else System.out.println("Invalid onboarding page opens"+driver.getCurrentUrl());
         wait(500);
         driver.findElement(By.xpath("//h4[contains(text(),'Angaben zu Ihrer Person')]"));
+        System.out.println("Are the Back and Skip and Next buttons clickable? - "+driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[1]")).isEnabled()
+                +" "+driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[2]")).isEnabled()+" "+
+                driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[3]")).isEnabled());
+
+        WebElement skip = driver.findElement(By.xpath("//div[@class=\"prev-next\"]/button[2]"));
+        skip.click();
+        driver.findElement(By.xpath("//h6")); // check appears dialog window
+        driver.findElement(By.xpath("//div[@role=\"dialog\"]//span[contains(text(), 'zurück')]")).click(); // close dialog
+        driver.findElement(By.xpath("//span[contains(text(), 'zurück')]")).click(); //go to the previosu page
+        driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[3]")).click(); //go the onboarding
+
+
     }
+
 
 
     void wait(int a) {

@@ -33,7 +33,8 @@ public class MainClass {
        onboarding.flowPortfolio();
        System.out.println("Success test onboarding");
        DeleteAllPortfolios deleteAllPortfolios = new DeleteAllPortfolios();
-       deleteAllPortfolios.del();
+      // deleteAllPortfolios.del();
+        System.out.println("Success delete all portfolios");
 
 
 
