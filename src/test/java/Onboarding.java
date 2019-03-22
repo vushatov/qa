@@ -108,7 +108,18 @@ public class Onboarding {
         driver.findElement(By.xpath("//h6")); // check appears dialog window
         driver.findElement(By.xpath("//div[@role=\"dialog\"]//span[contains(text(), 'zurück')]")).click(); // close dialog
         driver.findElement(By.xpath("//span[contains(text(), 'zurück')]")).click(); //go to the previosu page
-        driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[3]")).click(); //go the onboarding
+        driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[3]")).click(); //go to the onboarding
+
+        selectItemInDropDown("//div[@class=\"form-holder\"]/div[1]/div[1]/div[1]", "//ul[@role=\"listbox\"]/li[1]");
+        selectItemInDropDown("//div[@class=\"form-holder\"]/div[2]/div[1]/div[1]", "//ul[@role=\"listbox\"]/li[1]");
+        selectItemInDropDown("//div[@class=\"form-holder\"]/div[5]/div[1]/div[1]","//div[@role=\"document\"]//li[2]");
+        selectItemInDropDown("//div[@class=\"form-holder\"]/div[8]/div[1]/div[1]", "//div[@role=\"document\"]//li[2]");
+        selectItemInDropDown("//div[@class=\"form-holder\"]/div[10]/div[1]/div[1]", "//div[@role=\"document\"]//li[2]");
+        selectItemInDropDown("//div[@class=\"form-holder\"]/div[13]/div[1]/div[1]/div[1]/div[1]", "//div[@role=\"document\"]//li[1]");
+        fillFiled("//input[@placeholder=\"Alle Vornamen aus dem Ausweisdokument sind anzugeben.\"]", "Vladislav");
+
+
+
 
 
     }
@@ -152,6 +163,17 @@ public class Onboarding {
             attempts++;
         }
         return result;
+    }
+
+    public void selectItemInDropDown (String dropdown, String item){
+        driver.findElement(By.xpath(dropdown)).click();
+        wait(500);
+        driver.findElement(By.xpath(item)).click();
+        wait(500);
+    }
+    public void fillFiled (String field, String data){
+        driver.findElement(By.xpath(field)).sendKeys(data);
+        wait(500);
     }
 
 
