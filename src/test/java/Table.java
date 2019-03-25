@@ -11,20 +11,20 @@ public class Table {
     private WebElement tableElement;
     private WebDriver driver;
 
-    public Table(WebElement tableElement, WebDriver driver) {
-        this.tableElement = tableElement;
-        this.driver = driver;
-    }
+//    public Table(WebElement tableElement, WebDriver driver) {
+//        this.tableElement = tableElement;
+//        this.driver = driver;
+//    }
 
     public List<WebElement> getRow() {
-        List<WebElement> rows = tableElement.findElements(By.xpath(".//tr"));
+        List<WebElement> rows = tableElement.findElements(By.xpath(".//tr[1]"));
         rows.remove(0);
         return rows;
     }
 
     public List<WebElement> getHeadings() {
         WebElement headingsRow = tableElement.findElement(By.xpath(".//tr[1]"));
-        List<WebElement> headingsColumns = headingsRow.findElements(By.xpath(".//th"));
+        List<WebElement> headingsColumns = headingsRow.findElements(By.xpath(".//th[1]"));
         return headingsColumns;
     }
 
@@ -32,7 +32,7 @@ public class Table {
         List<WebElement> rows = getRow();
         List<List<WebElement>> rowsWithColumns = new ArrayList<List<WebElement>>();
         for (WebElement row : rows) {
-            List<WebElement> rowWithColumns = row.findElements(By.xpath(".//td"));
+            List<WebElement> rowWithColumns = row.findElements(By.xpath(".//td[2]"));
             rowsWithColumns.add(rowWithColumns);
         }
         return rowsWithColumns;

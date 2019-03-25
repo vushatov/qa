@@ -1,12 +1,12 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.concurrent.TimeUnit;
 
@@ -25,7 +25,7 @@ public class HelpList {
 //        WebElement li = driver.findElement(By.id("ca-viewsource"));
 //        driver.findElement(By.xpath("//a[@title='Visit the main page']"));
     // Thread.sleep(1000);
-    void helpMess() {
+    void helpMess() throws IOException {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////навести мышкой на элемент
         WebElement link = driver.findElement(By.xpath("//a[@href=\"/actual\"]"));
         Actions actions = new Actions(driver);
@@ -66,6 +66,15 @@ public class HelpList {
         link.isDisplayed(); // отображаеться
         link.isSelected(); // выбрана
         link.isEnabled(); // доступна
+
+        link.sendKeys(Keys.ENTER);//нажать кнопку Enter клавиатуры
+        link.sendKeys(Keys.chord(Keys.SHIFT, Keys.ALT, Keys.ENTER)); //нажатие нескольких кнопок одновременно
+        link.sendKeys(Keys.chord(Keys.CONTROL, "a")); // выделить текст и можно вырезать, скопировать, вставить и тд
+
+        File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); // сделать скриншот
+        FileHandler.copy(screenshot, new File("c:\\tmp\\screenshot.png")); // сохранить сериншот
+
+       driver.findElement(By.xpath("12")).sendKeys("C:\\Users\\user\\Desktop\\Screenshot_1.png"); //загрузка файлов
 
 
     }

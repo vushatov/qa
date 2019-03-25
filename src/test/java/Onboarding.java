@@ -1,7 +1,7 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
-public class Onboarding {
+public class Onboarding extends Table {
     public static String investing = "100000";
     static WebDriver driver = Driver.driver;
 
@@ -9,6 +9,7 @@ public class Onboarding {
         buyPortfolio();
         suitability();
         one_four_of_onboarding();
+        one_to_3();
     }
 
     void buyPortfolio() {
@@ -151,7 +152,6 @@ public class Onboarding {
         } else System.out.println("Not valid onboarding page opens");
 
         System.out.println("3rd page of Onboarding");
-        System.out.println("2nd page of Onboarding");
         if (driver.findElements(By.xpath("//h4[text()[contains(.,'Angaben zu Ihrer Bankverbindung')]]")).size() != 0) {
             System.out.println("Investition is " + driver.findElement(By.xpath("//div[@class=\"box-shadow\"]/div[1]/div/div/input")).getAttribute("value") + " " +
                     " and investion in the simulation is " + investing);
@@ -164,16 +164,19 @@ public class Onboarding {
 
         System.out.println("4th page of Onboarding");
         if (driver.findElements(By.xpath("//h4[text()[contains(.,'Angaben zu Ihrer steuerlichen Situation')]]")).size() != 0) {
-            selectItemInDropDown("//div[@class=\"form__holder\"]/div/div[1]/div/div/div[1]","//div[@role=\"document\"]//li[1]");
-            if (driver.findElements(By.xpath("//div[@class=\"form__holder\"]//div[2][@class=\"field-row\"]/div/div/div/div")).size()!=0){
-            selectItemInDropDown("//div[@class=\"form__holder\"]//div[2][@class=\"field-row\"]/div/div/div/div", "//div[@role=\"document\"]//li[1]");}
-            else System.out.println("The Branche is not allowed");
+            selectItemInDropDown("//div[@class=\"form__holder\"]/div/div[1]/div/div/div[1]", "//div[@role=\"document\"]//li[1]");
+            if (driver.findElements(By.xpath("//div[@class=\"form__holder\"]//div[2][@class=\"field-row\"]/div/div/div/div")).size() != 0) {
+                selectItemInDropDown("//div[@class=\"form__holder\"]//div[2][@class=\"field-row\"]/div/div/div/div", "//div[@role=\"document\"]//li[1]");
+            } else System.out.println("The Branche is not allowed");
             selectItemInDropDown("//div[2][@class=\"box-shadow\"]//div[@class=\"field-row\"]/div/div/div/div", "//div[@role=\"document\"]//li[2]");
             fillFiled("//div[2][@class=\"box-shadow\"]//input[@type=\"text\"]", "12121212121");
-            driver.findElement(By.xpath("//div[3][@class=\"box-shadow\"]//h4/button")).click(); // + national
-            if (driver.findElements(By.xpath("//div[3][@class=\"box-shadow\"]//div[@role=\"button\"]")).size()!=0){
-            selectItemInDropDown("//div[3][@class=\"box-shadow\"]//div[@role=\"button\"]", "//div[@role=\"document\"]//li[5]");}
-            else System.out.println("The dop national is not allowed");
+            if (driver.findElements(By.xpath("//div[3][@class=\"box-shadow\"]//h4/button")).size() != 0) {
+                System.out.println("There is dop national");
+            } else driver.findElement(By.xpath("//div[3][@class=\"box-shadow\"]//h4/button")).click(); // + national
+
+            if (driver.findElements(By.xpath("//div[3][@class=\"box-shadow\"]//div[@role=\"button\"]")).size() != 0) {
+                selectItemInDropDown("//div[3][@class=\"box-shadow\"]//div[@role=\"button\"]", "//div[@role=\"document\"]//li[5]");
+            } else System.out.println("The dop national is not allowed");
             driver.findElement(By.xpath("//div[4][@class=\"box-shadow\"]/div[1][@class=\"field-row\"]//input[@type=\"checkbox\"]")).click(); //select 1st checkbox
             driver.findElement(By.xpath("//div[4][@class=\"box-shadow\"]/div[3][@class=\"field-row\"]//input[@type=\"checkbox\"]")).click(); //select 2nd checkbox
             driver.findElement(By.xpath("//div[4][@class=\"box-shadow\"]/div[5][@class=\"field-row\"]//input[@type=\"checkbox\"]")).click(); //select 3rd checkbox
@@ -183,9 +186,16 @@ public class Onboarding {
         } else System.out.println("Invalid step of onboarding opens (Must be 4th)");
     }
 
+    void one_to_3() {
+
+        if (driver.findElements(By.xpath("//h4[text()[contains(.,'Bereitstellung vorvertraglicher Informationen')]]")).size() != 0) {
+            System.out.println("5th page of Onboarding opens");
+            //selectItemInDropDown("//div[@class=\"form__holder\"]/div/div[1]/div/div/div[1]", "//div[@role=\"document\"]//li[1]");
 
 
+        } else System.out.println("Invalid step opens - Must be 5th");
 
+    }
 
 
     void wait(int a) {
@@ -236,7 +246,7 @@ public class Onboarding {
 
     public void fillFiled(String field, String data) {
         // if (driver.findElements(By.xpath(field)).size() != 0) {
-        driver.findElement(By.xpath(field)).sendKeys("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+        driver.findElement(By.xpath(field)).sendKeys("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
         wait(200);
         driver.findElement(By.xpath(field)).sendKeys(data);
         wait(500);

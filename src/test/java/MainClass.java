@@ -3,10 +3,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Scanner;
@@ -15,11 +18,12 @@ import java.util.concurrent.TimeUnit;
 public class MainClass {
 
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
 
-        //System.setProperty("webdriver.gecko.driver", "C:/Users/user/IdeaProjects/qa/drivers/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "C:/Users/user/IdeaProjects/qa/drivers/geckodriver.exe");
         System.setProperty("webdriver.chrome.driver", "C:/Users/user/IdeaProjects/qa/drivers/chromedriver.exe");
          WebDriver driver = Driver.driver;
+
          driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
          driver.manage().window().maximize();
          driver.get("http://18.185.161.25");
@@ -36,6 +40,8 @@ public class MainClass {
        DeleteAllPortfolios deleteAllPortfolios = new DeleteAllPortfolios();
       // deleteAllPortfolios.del();
         System.out.println("Success delete all portfolios");
+
+       // driver.quit();
 
 
     }
