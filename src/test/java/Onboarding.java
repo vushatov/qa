@@ -4,7 +4,7 @@ import org.openqa.selenium.interactions.Actions;
 public class Onboarding {
     static WebDriver driver = Driver.driver;
 
-    public void flowPortfolio() {
+    public  void flowPortfolio() {
         buyPortfolio();
         suitability();
         one_four_of_onboarding();
@@ -103,6 +103,8 @@ public class Onboarding {
                 +" "+driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[2]")).isEnabled()+" "+
                 driver.findElement(By.xpath("//div[@class=\"page-container-holder\"]//div[@class=\"page-container\"]//button[3]")).isEnabled());
 
+        System.out.println("1st page of Onboarding");
+
         WebElement skip = driver.findElement(By.xpath("//div[@class=\"prev-next\"]/button[2]"));
         skip.click();
         driver.findElement(By.xpath("//h6")); // check appears dialog window
@@ -117,6 +119,37 @@ public class Onboarding {
         selectItemInDropDown("//div[@class=\"form-holder\"]/div[10]/div[1]/div[1]", "//div[@role=\"document\"]//li[2]");
         selectItemInDropDown("//div[@class=\"form-holder\"]/div[13]/div[1]/div[1]/div[1]/div[1]", "//div[@role=\"document\"]//li[1]");
         fillFiled("//input[@placeholder=\"Alle Vornamen aus dem Ausweisdokument sind anzugeben.\"]", "Vladislav");
+        fillFiled("//div[@class=\"form-holder\"]/div[4]//input", "Nachname");
+        fillFiled("//div[@class=\"form-holder\"]/div[6]//input", "Geburtsname");
+        fillFiled("//div[@class=\"form-holder\"]/div[7]//input","01011995");
+        fillFiled("//div[@class=\"form-holder\"]/div[9]//input", "Geburtsort");
+        fillFiled("//div[@class=\"form-holder\"]/div[11]//input", "12345678909");
+        fillFiled("//div[@class=\"form-holder\"]/div[14]//input","Pepname");
+        fillFiled("//div[@class=\"form-holder\"]/div[15]//input", "Peplastname");
+        fillFiled("//div[@class=\"form-holder\"]/div[16]//input", "Companyname");
+        selectItemInDropDown("//div[@class=\"form-holder\"]/div[17]/div[1]/div[1]/div[1]", "//div[@role=\"document\"]//li[2]");
+        driver.findElement(By.xpath("//button[3]")).click();
+
+        System.out.println("2nd page of Onboarding");
+        if (driver.findElements(By.xpath("//h3[text()[contains(.,'Angaben zu Ihrer Anschrift')]]")).size()!=0) {
+            driver.findElement(By.xpath("//div[@class=\"prev-next\"]/button")).click(); //go to the 1st step
+            driver.findElement(By.xpath("//button[3]")).click(); //go to the 2nd step
+            fillFiled("//div[@class=\"form-holder\"]/div[1]/div/input", "Petra");
+            fillFiled("//div[@class=\"form-holder\"]/div[2]/div/input", "1a");
+            fillFiled("//div[@class=\"form-holder\"]/div[3]/div/input", "Kharkiv");
+            fillFiled("//div[@class=\"form-holder\"]/div[4]/div/input", "addresszusatz");
+            fillFiled("//div[@class=\"form-holder\"]/div[5]/div/input", "1212");
+            //*[text()[contains(.,'ABC')]]
+
+
+
+
+        }else System.out.println("Invalid step opens = "+driver.getCurrentUrl());
+
+
+
+
+
 
 
 
@@ -171,9 +204,21 @@ public class Onboarding {
         driver.findElement(By.xpath(item)).click();
         wait(500);
     }
-    public void fillFiled (String field, String data){
-        driver.findElement(By.xpath(field)).sendKeys(data);
-        wait(500);
+
+    public void fillFiled(String field, String data) {
+       // if (driver.findElements(By.xpath(field)).size() != 0) {
+        driver.findElement(By.xpath(field)).sendKeys("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+           wait(200);
+            driver.findElement(By.xpath(field)).sendKeys(data);
+           wait(500);
+
+
+
+      //  } else {
+        //    driver.findElement(By.xpath(field)).sendKeys(data);
+       //     wait(500);
+
+      //  }
     }
 
 
