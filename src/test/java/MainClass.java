@@ -19,12 +19,29 @@ public class MainClass {
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        System.setProperty("webdriver.gecko.driver", "C:/Users/user/IdeaProjects/qa/drivers/geckodriver.exe");
+        //System.setProperty("webdriver.gecko.driver", "C:/Users/user/IdeaProjects/qa/drivers/geckodriver.exe");
         System.setProperty("webdriver.chrome.driver", "C:/Users/user/IdeaProjects/qa/drivers/chromedriver.exe");
-        System.setProperty("webdriver.edge.driver", "C:/Users/user/IdeaProjects/qa/drivers/MicrosoftWebDriver.exe");
-        System.setProperty("webdriver.opera.driver", "C:/Users/user/IdeaProjects/qa/drivers/operadriver.exe");
-       // System.setProperty("phantomjs.binary.path", "C:\\Users\\user\\IdeaProjects\\qa\\drivers\\phantomjs-2.0.0-windows\\bin\\phantomjs.exe");
         WebDriver driver = Driver.driver;
+       // System.setProperty("webdriver.edge.driver", "C:/Users/user/IdeaProjects/qa/drivers/MicrosoftWebDriver.exe");
+       // System.setProperty("webdriver.opera.driver", "C:/Users/user/IdeaProjects/qa/drivers/operadriver.exe");
+       // System.setProperty("phantomjs.binary.path", "C:\\Users\\user\\IdeaProjects\\qa\\drivers\\phantomjs-2.0.0-windows\\bin\\phantomjs.exe");
+
+        MainPage mainPage = new MainPage(driver);
+        mainPage.invalidLogin("wdwd@efe.ee", "efefef");
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /*
 
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -44,8 +61,7 @@ public class MainClass {
         System.out.println("Success test onboarding");
         DeleteAllPortfolios deleteAllPortfolios = new DeleteAllPortfolios();
         // deleteAllPortfolios.del();
-        System.out.println("Success delete all portfolios");
-
+        System.out.println("Success delete all portfolios"); */
         // driver.quit();
 
 
