@@ -76,6 +76,8 @@ public class HelpList {
 
        driver.findElement(By.xpath("12")).sendKeys("C:\\Users\\user\\Desktop\\Screenshot_1.png"); //загрузка файлов
 
+        WebDriver driver = Driver.driver; // в главный класс
+
 
 
 

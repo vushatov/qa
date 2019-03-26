@@ -13,10 +13,6 @@ public class Driver {
     //public static WebDriver driver = new FirefoxDriver();
    // public static WebDriver driver = new OperaDriver();
    // public static WebDriver driver = new EdgeDriver();
-
-
-
-
     Driver(WebDriver driver) {
         if (driver == null)
             driver = new ChromeDriver();

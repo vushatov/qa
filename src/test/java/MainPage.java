@@ -6,7 +6,6 @@ public class MainPage {
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
-        driver.get("https://twitter.com/");
     }
 
     private By SingInButton = By.xpath("//a[2][@href=\"/login\"]");
