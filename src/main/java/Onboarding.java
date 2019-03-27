@@ -1,5 +1,4 @@
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 
 public class Onboarding extends Table {
     public static String investing = "100000";

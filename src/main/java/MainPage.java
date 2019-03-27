@@ -8,8 +8,9 @@ public class MainPage {
         this.driver = driver;
     }
 
+
     private By SingInButton = By.xpath("//a[2][@href=\"/login\"]");
-    private By SingUpButton = By.xpath("//div[@class=\"StaticLoggedOutHomePage-buttons\"]//a[@href=\"https://twitter.com/signup\"]");
+    private By SingUpButton = By.xpath("//div[@class=\"StaticLoggedOutHomePage-buttons\"]//a[@href=\"https://twitter.com/signup\"]");  //Page object
     private By TopSingInButton = By.xpath("//div[@class=\"StaticLoggedOutHomePage-login\"]//form[@class=\"LoginForm js-front-signin\"]/input[@type=\"submit\"]");
     private By EmailField = By.xpath("//form[@data-component=\"login_callout\"]//input[@placeholder=\"Phone, email, or username\"]");
     private By PasswordFiled = By.xpath("//form[@data-component=\"login_callout\"]//input[@autocomplete=\"current-password\"]");
@@ -28,7 +29,7 @@ public class MainPage {
         return new SignUp(driver);
     }
     public Forgotpassword clickForgotPasswordLink(){
-        driver.findElement(ForgotPasswordLink);
+        driver.findElement(ForgotPasswordLink).click();
         return new Forgotpassword(driver);
     }
 

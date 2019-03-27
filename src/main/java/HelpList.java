@@ -1,13 +1,9 @@
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.concurrent.TimeUnit;
 
 public class HelpList {
@@ -78,6 +74,31 @@ public class HelpList {
 
         WebDriver driver = Driver.driver; // в главный класс
 
+
+/*
+        @BeforeAll //выполниться перед всем
+        public void before() {
+        }
+
+        @AfterAll // выполниться после всего
+        public void after() {
+        }
+        @BeforeEach   // выполняеться перед каждым тестовым методом
+        public void setUp(){}
+
+        @AfterEach// выполняеться после  каждого тестового метода
+        public void tearDown(){}
+    */
+      /*  @Test
+        public void method(){
+            Assertions.assertTrue(1+1==2);
+            Assertions.assertFalse(1+1==22);
+            // Assertions.assertNull(0);
+            //Assertions.assertNotNull(0);
+            Assertions.assertEquals(10,51+5);
+            Assertions.assertNotEquals(10, 11);
+
+        } */
 
 
 

@@ -14,6 +14,7 @@ public class SignIn {
     private By SignUpLink = By.xpath("//a[@id=\"login-signup-link\"]");
     private By RememberMeCheckBox = By.xpath("//label[@class=\"t1-label remember\"]//input[@type=\"checkbox\"]");
     private By HomeButton = By.xpath("//a[@class=\"js-nav js-tooltip js-dynamic-tooltip\"]");
+    private By header = By.xpath("//h1[contains(text(),'Log in to Twitter')]");
 
     public SignIn fillEmailField (String email){
         driver.findElement(EmailFiled).sendKeys(email);
@@ -41,6 +42,10 @@ public class SignIn {
     }
     public void clickLogin(){
         driver.findElement(LogInButton).click();
+    }
+    public String checkHeader(){
+       return driver.findElement(header).getText();
+
     }
 
     public SignIn InvalidLogin (String email, String password){
