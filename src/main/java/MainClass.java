@@ -1,31 +1,50 @@
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class MainClass {
     static WebDriver driver;
 
     public static void main(String[] args) throws InterruptedException, IOException {
-
-
-
-
-
-
-
-
         //System.setProperty("webdriver.gecko.driver", "C:/Users/user/IdeaProjects/qa/drivers/geckodriver.exe");
+
+
+    }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
         System.setProperty("webdriver.chrome.driver", "C:/Users/user/IdeaProjects/qa/drivers/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://twitter.com/");
+        driver.get("https://twitter.com/"); */
 
-        //  WebDriver driver = Driver.driver;
-        // System.setProperty("webdriver.edge.driver", "C:/Users/user/IdeaProjects/qa/drivers/MicrosoftWebDriver.exe");
-        // System.setProperty("webdriver.opera.driver", "C:/Users/user/IdeaProjects/qa/drivers/operadriver.exe");
-        // System.setProperty("phantomjs.binary.path", "C:\\Users\\user\\IdeaProjects\\qa\\drivers\\phantomjs-2.0.0-windows\\bin\\phantomjs.exe");
+
+//  WebDriver driver = Driver.driver;
+// System.setProperty("webdriver.edge.driver", "C:/Users/user/IdeaProjects/qa/drivers/MicrosoftWebDriver.exe");
+// System.setProperty("webdriver.opera.driver", "C:/Users/user/IdeaProjects/qa/drivers/operadriver.exe");
+// System.setProperty("phantomjs.binary.path", "C:\\Users\\user\\IdeaProjects\\qa\\drivers\\phantomjs-2.0.0-windows\\bin\\phantomjs.exe");
 
        /*
 
@@ -48,10 +67,10 @@ public class MainClass {
         DeleteAllPortfolios deleteAllPortfolios = new DeleteAllPortfolios();
         // deleteAllPortfolios.del();
         System.out.println("Success delete all portfolios"); */
-        // driver.quit();
+// driver.quit();
 
 
-    }
 
-    }
+
+
 
