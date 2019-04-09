@@ -12,12 +12,12 @@ public class Login {
     }
 
     boolean baseFlow() {
-        this.openBasePage();
-        this.fillFields("//input[@type='email']", "vushatov@qualium.systems.com.ua");
-        this.fillFields("/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/input[1]", "vushatov@qualium-systems.com.ua");
-        this.delDataFromFild("/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/input[1]");
-        this.delDataFromFild("//input[@type='email']");
-        this.goResetPassword();
+        openBasePage();
+        fillFields("//input[@type='email']", "vushatov@qualium.systems.com.ua");
+        fillFields("/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/input[1]", "vushatov@qualium-systems.com.ua");
+        delDataFromFild("/html[1]/body[1]/div[2]/div[1]/div[2]/div[1]/div[1]/form[1]/div[2]/div[1]/input[1]");
+        delDataFromFild("//input[@type='email']");
+        goResetPassword();
         registration();
         login();
 

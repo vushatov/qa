@@ -144,5 +144,23 @@ public class HelpList {
 
 
 
+
+        /*  обработка ввода!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         Scanner scanner = new Scanner(System.in);
+        int i=0;
+        int j=0;
+        System.out.println("Введите количесво звезд в строке ");
+        try {
+            i = scanner.nextInt();
+            System.out.println("Введите кол строк ");
+            j = scanner.nextInt();
+
+        } catch (InputMismatchException e) {
+            System.out.println("Not number");
+        }
+         */
+
+
+
     }
 }

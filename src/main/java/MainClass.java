@@ -1,16 +1,20 @@
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class MainClass {
     static WebDriver driver;
 
-    public static void main(String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args) throws InterruptedException, IOException, Exception {
         //System.setProperty("webdriver.gecko.driver", "C:/Users/user/IdeaProjects/qa/drivers/geckodriver.exe");
 
 
+
+
     }
-    }
+}
 
 
 
