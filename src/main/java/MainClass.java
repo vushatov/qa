@@ -1,7 +1,6 @@
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MainClass {
@@ -9,12 +8,41 @@ public class MainClass {
 
     public static void main(String[] args) throws InterruptedException, IOException, Exception {
         //System.setProperty("webdriver.gecko.driver", "C:/Users/user/IdeaProjects/qa/drivers/geckodriver.exe");
+        Scanner sc = new Scanner(System.in);
+int a;
+        int countOfChangeRegister = 0;
+        boolean terminateInput = false;
 
+        while(true) {
+            String string = sc.nextLine();
+            char[] charArray = string.toCharArray();
 
+            for(char ch : charArray) {
 
+                if(ch == '.') terminateInput = true;
+                else {
+                    if (ch<96){
+                        a=ch+32;
+                        ch=(char)a;
+                    }else  {
+                        a = ch-32;
+                        ch=(char)a;
+                    }
+                    countOfChangeRegister++;
+                }
+                System.out.print(ch);
+            }
+
+            if(terminateInput) break;
+        }
+System.out.println();
+        System.out.println(countOfChangeRegister);
 
     }
+
 }
+
+
 
 
 
