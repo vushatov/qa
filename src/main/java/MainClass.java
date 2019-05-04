@@ -9,7 +9,7 @@ public class MainClass {
     public static void main(String[] args) throws InterruptedException, IOException, Exception {
         //System.setProperty("webdriver.gecko.driver", "C:/Users/user/IdeaProjects/qa/drivers/geckodriver.exe");
         Scanner sc = new Scanner(System.in);
-int a;
+int a,b;
         int countOfChangeRegister = 0;
         boolean terminateInput = false;
 
