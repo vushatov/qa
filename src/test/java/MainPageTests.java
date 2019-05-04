@@ -15,6 +15,9 @@ public class MainPageTests {
 
     @BeforeEach
     public void setUp(){
+
+        System.setProperty("webdriver.firefox.marionette", "path/geckodriver");
+
         System.setProperty("webdriver.chrome.driver", "C:/Users/user/IdeaProjects/qa/drivers/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
